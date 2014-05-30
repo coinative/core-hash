@@ -23,13 +23,6 @@ module.exports = function(config) {
         'test/*.js': ['browserify']
     },
 
-    browserify: {
-        debug: true,
-        builtins: {
-            buffer: require.resolve('buffer')
-        }
-    },
-
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
