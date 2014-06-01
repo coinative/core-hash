@@ -5,34 +5,40 @@ var toBytes = sjcl.codec.bytes.fromBits;
 
 var ripemd160 = sjcl.hash.ripemd160.hash;
 var sha256 = sjcl.hash.sha256.hash;
+var sha512 = sjcl.hash.sha512.hash;
+
+function wrap(fn) {
+  return function () {
+    var args = Array.prototype.slice.call(arguments);
+    for (var i = 0; i < args.length; i++) {
+      if (Buffer.isBuffer(args[i])) {
+        args[i] = toBits(args[i]);
+      }
+    }
+    return new Buffer(toBytes(fn.apply(null, args)));
+  }
+}
 
 function hash160(data) {
-  if (Buffer.isBuffer(data)) {
-    data = toBits(data);
-  }
-  var hash = ripemd160(sha256(data));
-  return new Buffer(toBytes(hash));
+  return ripemd160(sha256(data));
 }
 
 function hash256(data) {
-  if (Buffer.isBuffer(data)) {
-    data = toBits(data);
-  }
-  var hash = sha256(sha256(data));
-  return new Buffer(toBytes(hash));
+  return sha256(sha256(data));
 }
 
-function hmacsha512(data, key) {
-  if (Buffer.isBuffer(data)) {
-    data = toBits(data);
-  }
-  if (Buffer.isBuffer(key)) {
-    key = toBits(key);
-  }
-  var hash = new sjcl.misc.hmac(key, sjcl.hash.sha512).encrypt(data);
-  return new Buffer(toBytes(hash));
+function hmacsha256(key, data) {
+  return new sjcl.misc.hmac(key, sjcl.hash.sha256).encrypt(data);
 }
 
-exports.hash160 = hash160;
-exports.hash256 = hash256;
-exports.hmacsha512 = hmacsha512;
+function hmacsha512(key, data) {
+  return new sjcl.misc.hmac(key, sjcl.hash.sha512).encrypt(data);
+}
+
+exports.ripemd160 = wrap(ripemd160);
+exports.sha256 = wrap(sha256);
+exports.sha512 = wrap(sha512);
+exports.hash160 = wrap(hash160);
+exports.hash256 = wrap(hash256);
+exports.hmacsha256 = wrap(hmacsha256);
+exports.hmacsha512 = wrap(hmacsha512);
