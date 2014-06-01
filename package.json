@@ -1,13 +1,14 @@
 {
   "name": "core-hash",
   "version": "0.0.0",
-  "description": "",
+  "description": "Bitcoin related hash functions implemented for NodeJS and browsers via SJCL",
   "main": "lib/index.js",
   "browser": "lib-browser/index.js",
-  "author": "",
+  "author": "Ben Shepheard <ben@coinative.com>",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r ./test/support/env -R dot ./test && ./node_modules/.bin/karma start"
+    "test": "./node_modules/.bin/mocha -r ./test/support/env -R dot ./test && ./node_modules/.bin/karma start",
+    "test-travis": "./node_modules/.bin/mocha -r ./test/support/env -R spec ./test && ./node_modules/.bin/karma start"
   },
   "devDependencies": {
     "browserify": "^4.1.6",
@@ -23,6 +24,7 @@
     "watchify": "^0.10.2"
   },
   "dependencies": {
-    "buffer": "2.3.0"
+    "buffer": "2.3.0",
+    "core-sjcl": "git://github.com/coinative/core-sjcl"
   }
 }
