@@ -1,6 +1,6 @@
 var hash = require('../');
 
-describe('core-hash', function () {
+describe('satoshi-hash', function () {
   it('ripemd160', function () {
     expect(hash.ripemd160('abc').toString('hex'))
       .to.equal('8eb208f7e05d987a9b044a8e98c6b087f15a0bfc');

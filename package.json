@@ -1,5 +1,5 @@
 {
-  "name": "core-hash",
+  "name": "satoshi-hash",
   "version": "0.0.0",
   "description": "Bitcoin related hash functions implemented for NodeJS and browsers via SJCL",
   "main": "lib/index.js",
@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "buffer": "2.3.0",
-    "core-sjcl": "git://github.com/coinative/core-sjcl"
+    "satoshi-sjcl": "git://github.com/coinative/satoshi-sjcl"
   }
 }
