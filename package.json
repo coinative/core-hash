@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "buffer": "2.3.0",
-    "satoshi-sjcl": "git://github.com/coinative/satoshi-sjcl"
+    "satoshi-sjcl": "0.0.2"
   }
 }
