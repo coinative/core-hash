@@ -1,4 +1,5 @@
 var sjcl = require('satoshi-sjcl');
+var hkdf = require('../lib/hkdf');
 
 var toBits = sjcl.codec.bytes.toBits;
 var toBytes = sjcl.codec.bytes.fromBits;
@@ -42,3 +43,4 @@ exports.hash160 = wrap(hash160);
 exports.hash256 = wrap(hash256);
 exports.hmacsha256 = wrap(hmacsha256);
 exports.hmacsha512 = wrap(hmacsha512);
+exports.hkdf256 = hkdf(wrap(hmacsha256), 32);
