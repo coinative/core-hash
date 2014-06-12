@@ -86,20 +86,19 @@ describe('satoshi-hash', function () {
 };
 
 // https://tools.ietf.org/html/rfc5869
-describe('sjcl.misc.hkdf', function () {
-  describe('sha256', function () {
-    vectors.sha256.forEach(function (vector, i) {
-      it('vector ' + i, function () {
-        var ikm = new Buffer(vector.ikm, 'hex');
-        var salt = new Buffer(vector.salt, 'hex');
-        var info = new Buffer(vector.info, 'hex');
-        var prk = hash.hkdf256.extract(salt, ikm);
-        expect(prk.toString('hex')).to.equal(vector.prk);
-        var okm = hash.hkdf256.expand(prk, info, vector.okm.length / 2);
-        expect(okm.toString('hex')).to.equal(vector.okm);
-      });
+describe('hkdf256', function () {
+  vectors.sha256.forEach(function (vector, i) {
+    it('vector ' + i, function () {
+      var ikm = new Buffer(vector.ikm, 'hex');
+      var salt = new Buffer(vector.salt, 'hex');
+      var info = new Buffer(vector.info, 'hex');
+      var prk = hash.hkdf256.extract(salt, ikm);
+      expect(prk.toString('hex')).to.equal(vector.prk);
+      var okm = hash.hkdf256.expand(prk, info, vector.okm.length / 2);
+      expect(okm.toString('hex')).to.equal(vector.okm);
     });
   });
+});
 
   // Not currently working as sjcl Hash functions don't have an output size
   // describe('sha1', function () {
@@ -115,6 +114,6 @@ describe('sjcl.misc.hkdf', function () {
   //     });
   //   });
   // });
-});
+
 
 });
