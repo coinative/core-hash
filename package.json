@@ -1,6 +1,6 @@
 {
   "name": "satoshi-hash",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Bitcoin related hash functions implemented for NodeJS and browsers via SJCL",
   "main": "lib/index.js",
   "browser": "lib-browser/index.js",
