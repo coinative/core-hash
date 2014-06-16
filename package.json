@@ -4,7 +4,10 @@
   "description": "Bitcoin related hash functions implemented for NodeJS and browsers via SJCL",
   "main": "lib/index.js",
   "browser": "lib-browser/index.js",
-  "author": "Ben Shepheard <ben@coinative.com>",
+  "contributors": [
+    "Ben Shepheard <ben@coinative.com>",
+    "Dan Howitt <dan@coinative.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/coinative/satoshi-hash.git"
