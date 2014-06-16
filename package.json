@@ -5,6 +5,14 @@
   "main": "lib/index.js",
   "browser": "lib-browser/index.js",
   "author": "Ben Shepheard <ben@coinative.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coinative/satoshi-hash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coinative/satoshi-hash/issues"
+  },
+  "homepage": "https://github.com/coinative/satoshi-hash",
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ./test/support/env -R dot ./test && ./node_modules/.bin/karma start",
